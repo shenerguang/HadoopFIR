@@ -1,0 +1,7 @@
+
+Description:
+============
+We use FPGA to accelerate Hadoop cluster.
+In order to run C program with Hadoop we use Hadoop Streaming API.
+
+
