@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+using namespace std;
+
+int fir_fd;
+void fir(short *a,short b);
+
+int main()
+{
+	string str;
+	char in_val[2];
+	int i;
+
+	fir_fd = open("/dev/fir_mod", 0);
+
+	while(cin>>str)
+	{
+		//the key is the original value
+		//cout << str << "\t"; 
+
+		//firstly, init fir with 58 zero
+		char out_val[2];
+    		ioctl(fir_fd,1,0);
+		
+		//secondly, do the real fir
+		int len = str.length()/2;
+		for(i=0;i<len;i++)
+		{
+			str.copy(out_val,2,i);	
+			ioctl(fir_fd,3,(short*)out_val);
+			cout << out_val[0] << out_val[1];
+		}
+		//release sem
+    		ioctl(fir_fd,5,0);
+
+		//the value is fir out, and follow a line finish
+		cout << endl;
+		
+	}
+ 	return 0;
+}

@@ -1,0 +1,50 @@
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+using namespace std;
+
+static int fir_fd;
+
+int main()
+{
+ char str[4]={0};
+ int i = 0, flag = 0;
+ fir_fd = open("/dev/fir_mod", 0);
+ 
+ while(scanf("%c",&str[i])!=EOF)
+ {
+ // printf("%c",str[i]);
+  if(str[i] == ' '|| str[i] == '\n' || i==3)
+  {
+    if(i==0)
+    {
+      if(flag == 1)
+      {
+	printf("\t1\n");
+	flag = 0;
+      }
+      continue;
+    }
+    char val[4];
+    ioctl(fir_fd,1,(int*)str);
+    ioctl(fir_fd,3,(unsigned int*)val); 
+    printf("%c%c%c%c",val[0],val[1],val[2],val[3]);
+    flag = 1;
+    if(str[i] == ' ' || str[i] == '\n')
+    {
+	printf("\t1\n");
+	flag = 0;
+    }
+    i=3;
+  }
+  i++;
+  if(i>=4)
+  {
+   *(int *)str = 0; 
+   i=0;
+  }
+ }
+ return 0;
+}
