@@ -4,4 +4,8 @@ Description:
 We use FPGA to accelerate Hadoop cluster.
 In order to run C program with Hadoop we use Hadoop Streaming API.
 
+v2014_9_10:
+===========
+Delete all outputs.
+The test results shows 1.5 speedup.
 
