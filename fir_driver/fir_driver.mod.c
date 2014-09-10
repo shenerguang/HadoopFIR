@@ -17,15 +17,15 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0x7096d4b2, "module_layout" },
-	{ 0x65af5f12, "device_destroy" },
+	{ 0xcf79a31, "module_layout" },
+	{ 0xfaaad20d, "device_destroy" },
 	{ 0x40a6f522, "__arm_ioremap" },
-	{ 0xa748b5b4, "class_destroy" },
-	{ 0x261e2294, "class_unregister" },
-	{ 0xfb3e07f7, "device_create" },
+	{ 0x7fe29886, "class_destroy" },
+	{ 0x121cbf25, "class_unregister" },
+	{ 0xcc2e009e, "device_create" },
 	{ 0x6bc3fbc0, "__unregister_chrdev" },
-	{ 0x223ed33a, "__class_create" },
-	{ 0x808607a6, "__register_chrdev" },
+	{ 0x3949871f, "__class_create" },
+	{ 0x1f87bfc, "__register_chrdev" },
 	{ 0xf473ffaf, "down" },
 	{ 0xefd6cf06, "__aeabi_unwind_cpp_pr0" },
 	{ 0xac8f37b2, "outer_cache" },

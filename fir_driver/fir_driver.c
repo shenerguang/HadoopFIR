@@ -60,10 +60,10 @@ static ssize_t fir_ioctl(struct file *file, unsigned int cmd, long *arg)
 			}
 			//now read data from fir y
 			//status = ioread32(fir_addr+FIR_DATA_OUT_OFFSET);
-			printk("59 zeros has been put to fir!!\n");
+			//printk("59 zeros has been put to fir!!\n");
 			return 0;
 		case 3:
-			printk("in data = %ld\n",*arg);
+			//printk("in data = %ld\n",*arg);
 			iowrite32(*arg,fir_addr+XFIR_DATA_IN_OFFSET);
 			iowrite32(0x1,fir_addr+XFIR_CTRL_OFFSET);
 			iowrite32(0x0,fir_addr+XFIR_CTRL_OFFSET);
@@ -72,14 +72,14 @@ static ssize_t fir_ioctl(struct file *file, unsigned int cmd, long *arg)
 			//now read data from fir y
 			status = ioread32(fir_addr+XFIR_DATA_OUT_OFFSET);
 			ret = __put_user(status, (long *)arg);
-			printk("out data = 0x%x\n",status);
+			//printk("out data = 0x%x\n",status);
 			return 0;
 		case 5:
 			up(&sem);
-			printk("sema up\n");
+			//printk("sema up\n");
 			return 0;
 		default:
-			printk("default cmd=%d\n",cmd);
+			//printk("default cmd=%d\n",cmd);
 			return -EINVAL;
 	}
 }
