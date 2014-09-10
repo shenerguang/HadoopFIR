@@ -1,0 +1,19 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+int main() {
+ map<string,int> wordMap;
+  map<string,int>::iterator it;
+ string key;
+ int value;
+ int count;
+ while(cin>>key>>value) {
+  wordMap[key] +=value;
+ }
+ for(it=wordMap.begin();it != wordMap.end();it++) {
+  cout<<it->first<<"\t"<<it->second<<endl;
+ }
+ return 0;
+}
